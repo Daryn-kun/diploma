@@ -12,6 +12,7 @@ const donationSchema = new Schema({
     total: Number,
     donation: Number,
     tip: Number,
+    card_holder: String,
     card_num: String,
     expiry: String,
     cvv: String,
