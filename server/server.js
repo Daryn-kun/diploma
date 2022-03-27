@@ -1,16 +1,17 @@
-const express = require('express')
+const express    = require('express')
 const bodyParser = require('body-parser')
-const cors = require('cors')
-const path = require('path')
-const mongoose = require('mongoose');
+const cors       = require('cors')
+const path       = require('path')
+const mongoose   = require('mongoose');
 
-const profilesRoutes = require('./routes/profiles')
-const categoryRoutes = require('./routes/category')
+const profilesRoutes    = require('./routes/profiles')
+const categoryRoutes    = require('./routes/category')
 const fundraisingRoutes = require('./routes/fundraising')
+const donationRoutes    = require('./routes/donation')
 
 const PORT = 3000
 
-const app = express()
+const app  = express()
 
 mongoose.connect("mongodb+srv://admin:diploma2022@cluster0.xwhi0.mongodb.net/komek?retryWrites=true&w=majority",
                  {useNewUrlParser: true, useUnifiedTopology: true}   
@@ -25,12 +26,9 @@ app.use(bodyParser.json())
 app.set("view engine", "ejs");
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/profiles', profilesRoutes)
-app.use('/category', categoryRoutes)
+app.use('/profiles',    profilesRoutes)
+app.use('/category',    categoryRoutes)
 app.use('/fundraising', fundraisingRoutes)
-
-// app.listen(PORT, function(){
-//     console.log('Server running on localhost:' + PORT)
-// })
+app.use('/donation',    donationRoutes)
 
 module.exports = app;

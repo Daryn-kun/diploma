@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+const router  = express.Router()
 const multer  = require('multer');
 
 const storage = multer.diskStorage({
@@ -40,6 +40,7 @@ router.get('/', (req, res) => {
 
 router.post('/create', upload.single('imagePath'), (req, res, next) => {
     let fundraisingData = req.body
+	console.log(req.file.filename)
     fundraisingData.imagePath = 'http://localhost:3000/images/' + req.file.filename 
     let fundraising = new Fundraising(fundraisingData)
     fundraising.save((error, enteredFundraising) => {
