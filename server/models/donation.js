@@ -8,6 +8,7 @@ const donationSchema = new Schema({
     fundraisingid: { 
         type: Schema.Types.ObjectId, ref: 'fundraising'
     },
+    donater: { type: String, default: "Anonymous"},
     comment: { type: String, default: ""},
     total: Number,
     donation: Number,

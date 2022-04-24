@@ -38,6 +38,18 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.get('/category', (req, res) => {
+	Fundraising.find({categoryid: req.query.categoryid}, (err, fundraisings) => {
+		if (err) {
+			console.log(err);
+			res.status(500).send('An error occurred', err);
+		}
+		else {
+			res.json(fundraisings);
+		}
+	});
+});
+
 router.post('/create', upload.single('imagePath'), (req, res, next) => {
     let fundraisingData = req.body
 	console.log(req.file.filename)
