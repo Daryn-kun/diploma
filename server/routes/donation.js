@@ -2,6 +2,7 @@ const express = require('express')
 const router  = express.Router()
 
 const Donation = require('../models/donation')
+const Donations = require("../models/donation");
 
 router.post('/donate', (req, res) => {
     let donationData = req.body
@@ -14,6 +15,24 @@ router.post('/donate', (req, res) => {
         }
     })
 })
+
+router.put('/edit/:id', function (req, res){
+    var donation = {
+        total: 0,
+        donation:  0,
+        tip:  0,
+		upd_date: new Date()
+    };
+    console.log('Update donation data');
+
+    Donation.findByIdAndUpdate(req.params.id,
+        { $set: donation },
+        { new: true },
+        (err, doc) => {
+            if (!err) { res.send(doc); }
+            else { console.log('Error in Donation Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
 
 router.get('/', (req, res) => {
 	Donation.find({}, (err, donations) => {

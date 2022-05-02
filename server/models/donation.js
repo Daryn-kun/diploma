@@ -20,5 +20,6 @@ const donationSchema = new Schema({
     email: String,
     currency: { type: String, default: "Tenge"},
     date: { type: Date, default: Date.now },
+    upd_date: { type: Date, default: Date.now }
 })
 module.exports = mongoose.model('donation', donationSchema, 'donations')

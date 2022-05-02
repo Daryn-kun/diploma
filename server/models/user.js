@@ -9,6 +9,10 @@ const userSchema = new Schema({
     city: String,
     address: String,
     birthday: String,
-    gender: String
+    gender: String,
+    imagePath: String,
+    date: { type: Date, default: Date.now },
+    upd_date: { type: Date, default: Date.now },
+    userRole: { type: Number, default: 2}
 })
 module.exports = mongoose.model('user', userSchema, 'users')

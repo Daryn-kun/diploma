@@ -13,8 +13,11 @@ const fundraisingSchema = new Schema({
     amount_goal: Number,
     city: String,
     date: { type: Date, default: Date.now },
+    upd_date: { type: Date, default: Date.now },
     currency: { type: String, default: "Tenge"},
     imagePath: String,
-    card_num: String
+    card_num: String,
+    card_holder: String,
+    active: { type: Boolean, default: true },
 })
 module.exports = mongoose.model('fundraising', fundraisingSchema, 'fundraisings')
