@@ -60,6 +60,7 @@ router.get('/fundraising', (req, res) => {
 });
 
 router.get('/user', (req, res) => {
+	console.log("get donation by user id: " + req.query.userid);
 	Donation.find({userid: req.query.userid}, (err, donations) => {
 		if (err) {
 			console.log(err);

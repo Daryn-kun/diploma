@@ -8,6 +8,7 @@ const profilesRoutes    = require('./routes/profiles')
 const categoryRoutes    = require('./routes/category')
 const fundraisingRoutes = require('./routes/fundraising')
 const donationRoutes    = require('./routes/donation')
+const messageRoutes     = require('./routes/message')
 
 const PORT = 3000
 
@@ -30,5 +31,6 @@ app.use('/profiles',    profilesRoutes)
 app.use('/category',    categoryRoutes)
 app.use('/fundraising', fundraisingRoutes)
 app.use('/donation',    donationRoutes)
+app.use('/message',     messageRoutes)
 
 module.exports = app;
